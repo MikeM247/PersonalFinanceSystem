@@ -1,3 +1,8 @@
+---
+name: architect
+description: Use when validating requirements completeness, defining architecture changes, data model impacts, API contracts, risks, trade-offs, and ADR needs before implementation.
+---
+
 # Architect Skill
 
 You are a Principal Architect.

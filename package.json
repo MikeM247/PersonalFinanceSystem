@@ -1,0 +1,27 @@
+{
+  "name": "personal-finance-system",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#api/*": "./apps/api/dist/*",
+    "#core/*": "./packages/core/dist/*",
+    "#db/*": "./packages/db/dist/*"
+  },
+  "scripts": {
+    "build:db": "tsc -p packages/db/tsconfig.json && node scripts/copy-db-assets.mjs",
+    "build:core": "tsc -p packages/core/tsconfig.json",
+    "build:api": "tsc -p apps/api/tsconfig.json",
+    "build:web": "tsc -p apps/web/tsconfig.json",
+    "build": "npm run build:db && npm run build:core && npm run build:api && npm run build:web",
+    "provision:owner": "npm run build && node scripts/provision-owner-account.mjs",
+    "auth:e2e:server": "node apps/web/e2e/auth-e2e-server.mjs",
+    "test:e2e:auth": "npm run build && npx playwright test --config apps/web/e2e/playwright.auth.config.mjs",
+    "typecheck": "npm run build:db && npm run build:core && npm run build:api && tsc -p apps/web/tsconfig.json --noEmit",
+    "test": "npm run build && node packages/db/dist/tests/auth-sqlite-repositories.test.js && node packages/core/dist/tests/auth-service.test.js && node apps/api/dist/tests/auth-api.test.js && node apps/web/dist/tests/auth-web.test.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}

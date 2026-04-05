@@ -1,0 +1,11 @@
+export { normalizeEmail } from "./auth/normalize-email.js";
+export { applySqlMigrationFile, createNodeSqliteExecutor, NodeSqliteExecutor, } from "./auth/node-sqlite-executor.js";
+export { loadAuthRuntimeConfig, loadOwnerProvisioningConfig, } from "./auth/auth-config.js";
+export { hashPassword } from "./auth/password-hashing.js";
+export { provisionOwnerAccount } from "./auth/owner-account-provisioning.js";
+export { SqlAuditEventRepository, SqlUserRepository, SqlUserSessionRepository, } from "./auth/sql-auth-repositories.js";
+export type { AuditEventRepository, UserRepository, UserSessionRepository, } from "./auth/repository-contracts.js";
+export type { SqlExecutor } from "./auth/sqlite-executor.js";
+export type { AuditEventRecord, CreateAuditEventInput, CreateUserInput, CreateUserSessionInput, UserRecord, UserRole, UserSessionRecord, UserStatus, } from "./auth/types.js";
+export type { AuthRuntimeConfig, OwnerProvisioningConfig, SameSiteSetting, } from "./auth/auth-config.js";
+export type { OwnerAccountProvisioningDependencies, OwnerAccountProvisioningInput, OwnerAccountProvisioningResult, } from "./auth/owner-account-provisioning.js";
